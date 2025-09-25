@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artists - Graphio</title>
+    <link rel="stylesheet" href="artists.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+    <div class="min-h-screen">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <!-- Logo -->
+                    <div class="logo">
+                        <a href="index.html" class="logo-link">
+                            <div class="logo-text">Graphio</div>
+                        </a>
+                    </div>
+
+                    <!-- Desktop Navigation -->
+                    <nav class="nav-desktop">
+                        <a href="designs.html" class="nav-link">Designs</a>
+                        <a href="careers.html" class="nav-link">Careers</a>
+                        <a href="artists.html" class="nav-link active">Artists</a>
+                        <a href="index.html#about" class="nav-link">About</a>
+                    </nav>
+
+                    <!-- Right side buttons -->
+                    <div class="header-buttons">
+                        <button class="btn btn-ghost btn-sm search-btn">
+                            <i data-lucide="search" class="icon-sm"></i>
+                            Search
+                        </button>
+                        <a href="login.html" class="btn btn-outline btn-sm">Log In</a>
+                        <a href="signup.html" class="btn btn-sm btn-gradient designer-btn">Be a Graphio Designer</a>
+                        
+                        <!-- Mobile menu button -->
+                        <button class="btn btn-ghost btn-sm mobile-menu">
+                            <i data-lucide="menu" class="icon-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Meet Our Talented Designers</h1>
+                        <p class="hero-description">
+                            Connect with skilled creative professionals who bring your vision to life with exceptional design expertise
+                        </p>
+                        
+                        <!-- Search Bar -->
+                        <div class="search-container">
+                            <div class="search-input-container">
+                                <i data-lucide="search" class="search-icon"></i>
+                                <input 
+                                    type="text" 
+                                    id="searchInput"
+                                    placeholder="Search by name, specialty, or location..." 
+                                    class="search-input"
+                                >
+                            </div>
+                        </div>
+                        
+                        <!-- Quick Stats -->
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">Talented Artists</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">4.8</span>
+                                <span class="stat-label">Avg Rating</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">50K+</span>
+                                <span class="stat-label">Projects Completed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Filters Section -->
+            <section class="filters-section">
+                <div class="container">
+                    <div class="filters-content">
+                        <div class="filters-left">
+                            <div class="filter-group">
+                                <label class="filter-label">Specialty</label>
+                                <div class="filter-buttons" id="specialtyButtons">
+                                    <button class="btn btn-filter active" data-filter="all">All</button>
+                                    <button class="btn btn-filter" data-filter="brand-identity">Brand Identity</button>
+                                    <button class="btn btn-filter" data-filter="ui-ux">UI/UX Design</button>
+                                    <button class="btn btn-filter" data-filter="illustration">Illustration</button>
+                                    <button class="btn btn-filter" data-filter="print-design">Print Design</button>
+                                    <button class="btn btn-filter" data-filter="web-design">Web Design</button>
+                                </div>
+                            </div>
+                            
+                            <div class="filter-group">
+                                <label class="filter-label">Experience Level</label>
+                                <div class="filter-buttons" id="experienceButtons">
+                                    <button class="btn btn-filter active" data-filter="all">All</button>
+                                    <button class="btn btn-filter" data-filter="junior">Junior (1-3 years)</button>
+                                    <button class="btn btn-filter" data-filter="mid">Mid-level (3-7 years)</button>
+                                    <button class="btn btn-filter" data-filter="senior">Senior (7+ years)</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="filters-right">
+                            <div class="sort-container">
+                                <label class="sort-label">Sort by</label>
+                                <select id="sortSelect" class="sort-select">
+                                    <option value="rating">Highest Rated</option>
+                                    <option value="projects">Most Projects</option>
+                                    <option value="reviews">Most Reviews</option>
+                                    <option value="name">Name A-Z</option>
+                                    <option value="newest">Newest Members</option>
+                                </select>
+                            </div>
+                            
+                            <div class="view-toggle">
+                                <button class="btn btn-view active" id="gridViewBtn" data-view="grid">
+                                    <i data-lucide="grid-3x3" class="icon-sm"></i>
+                                </button>
+                                <button class="btn btn-view" id="listViewBtn" data-view="list">
+                                    <i data-lucide="list" class="icon-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="results-count" id="resultsCount">
+                        Showing 1-8 of 500+ designers
+                    </div>
+                </div>
+            </section>
+
+            <!-- Artists Section -->
+            <section class="artists-section">
+                <div class="container">
+                    <!-- Grid View -->
+                    <div class="artists-grid" id="artistsGrid">
+                        <!-- Artist cards will be inserted here by JavaScript -->
+                    </div>
+                    
+                    <!-- List View -->
+                    <div class="artists-list hidden" id="artistsList">
+                        <!-- Artist list items will be inserted here by JavaScript -->
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="pagination-container" id="paginationContainer">
+                        <div class="pagination">
+                            <button class="btn btn-outline btn-sm pagination-btn" id="prevBtn" disabled>
+                                <i data-lucide="chevron-left" class="icon-sm"></i>
+                                Previous
+                            </button>
+                            
+                            <div class="pagination-info" id="paginationInfo">
+                                Page 1 of 1
+                            </div>
+                            
+                            <button class="btn btn-outline btn-sm pagination-btn" id="nextBtn" disabled>
+                                Next
+                                <i data-lucide="chevron-right" class="icon-sm"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="pagination-pages" id="paginationPages">
+                            <!-- Page numbers will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Categories -->
+            <section class="categories-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Browse by Specialty</h2>
+                        <p class="section-description">
+                            Find designers specialized in your specific design needs
+                        </p>
+                    </div>
+                    
+                    <div class="categories-grid">
+                        <div class="category-card" data-specialty="brand-identity">
+                            <div class="category-icon">
+                                <i data-lucide="palette" class="icon-lg"></i>
+                            </div>
+                            <h3 class="category-title">Brand Identity</h3>
+                            <p class="category-description">Logo design, brand guidelines, and complete visual identity systems</p>
+                            <div class="category-stats">
+                                <span class="category-count">120+ designers</span>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card" data-specialty="ui-ux">
+                            <div class="category-icon">
+                                <i data-lucide="smartphone" class="icon-lg"></i>
+                            </div>
+                            <h3 class="category-title">UI/UX Design</h3>
+                            <p class="category-description">User interface design, user experience optimization, and prototyping</p>
+                            <div class="category-stats">
+                                <span class="category-count">95+ designers</span>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card" data-specialty="illustration">
+                            <div class="category-icon">
+                                <i data-lucide="paintbrush" class="icon-lg"></i>
+                            </div>
+                            <h3 class="category-title">Illustration</h3>
+                            <p class="category-description">Digital art, character design, and custom illustrations</p>
+                            <div class="category-stats">
+                                <span class="category-count">80+ designers</span>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card" data-specialty="print-design">
+                            <div class="category-icon">
+                                <i data-lucide="layout" class="icon-lg"></i>
+                            </div>
+                            <h3 class="category-title">Print Design</h3>
+                            <p class="category-description">Brochures, business cards, posters, and marketing materials</p>
+                            <div class="category-stats">
+                                <span class="category-count">75+ designers</span>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card" data-specialty="web-design">
+                            <div class="category-icon">
+                                <i data-lucide="globe" class="icon-lg"></i>
+                            </div>
+                            <h3 class="category-title">Web Design</h3>
+                            <p class="category-description">Website design, landing pages, and responsive layouts</p>
+                            <div class="category-stats">
+                                <span class="category-count">110+ designers</span>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card" data-specialty="motion-graphics">
+                            <div class="category-icon">
+                                <i data-lucide="video" class="icon-lg"></i>
+                            </div>
+                            <h3 class="category-title">Motion Graphics</h3>
+                            <p class="category-description">Animation, video graphics, and interactive design</p>
+                            <div class="category-stats">
+                                <span class="category-count">45+ designers</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Call to Action -->
+            <section class="cta-section">
+                <div class="container">
+                    <div class="cta-content">
+                        <div class="cta-text">
+                            <h2 class="cta-title">Ready to Start Your Next Project?</h2>
+                            <p class="cta-description">
+                                Connect with talented designers and bring your creative vision to life
+                            </p>
+                        </div>
+                        <div class="cta-actions">
+                            <a href="signup.html" class="btn btn-primary">
+                                Post Your Project
+                                <i data-lucide="arrow-right" class="icon-sm"></i>
+                            </a>
+                            <a href="designs.html" class="btn btn-outline btn-white">
+                                <i data-lucide="eye" class="icon-sm"></i>
+                                Browse Designs
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3 class="footer-title">Graphio</h3>
+                        <p class="footer-description">
+                            The leading marketplace for creative professionals. Connect, create, and grow your design business.
+                        </p>
+                        <div class="footer-social">
+                            <a href="#" class="social-link">
+                                <i data-lucide="twitter" class="icon-sm"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i data-lucide="facebook" class="icon-sm"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i data-lucide="instagram" class="icon-sm"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i data-lucide="linkedin" class="icon-sm"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4 class="footer-subtitle">For Designers</h4>
+                        <ul class="footer-links">
+                            <li><a href="#" class="footer-link">Join as Designer</a></li>
+                            <li><a href="#" class="footer-link">Designer Resources</a></li>
+                            <li><a href="#" class="footer-link">Success Stories</a></li>
+                            <li><a href="#" class="footer-link">Portfolio Tips</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4 class="footer-subtitle">For Clients</h4>
+                        <ul class="footer-links">
+                            <li><a href="#" class="footer-link">Find Designers</a></li>
+                            <li><a href="#" class="footer-link">Post Project</a></li>
+                            <li><a href="#" class="footer-link">How It Works</a></li>
+                            <li><a href="#" class="footer-link">Client Guide</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4 class="footer-subtitle">Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="#" class="footer-link">About Us</a></li>
+                            <li><a href="#" class="footer-link">Careers</a></li>
+                            <li><a href="#" class="footer-link">Press</a></li>
+                            <li><a href="#" class="footer-link">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        © 2024 Graphio. All rights reserved.
+                    </div>
+                    <div class="footer-legal">
+                        <a href="#" class="legal-link">Privacy Policy</a>
+                        <a href="#" class="legal-link">Terms of Service</a>
+                        <a href="#" class="legal-link">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Artist data
+        const allArtists = [
+            {
+                id: 1,
+                name: "Sarah Chen",
+                specialty: "Brand Identity & Logo Design",
+                specialtyCategory: "brand-identity",
+                location: "San Francisco, CA",
+                rating: 4.9,
+                reviews: 127,
+                completedProjects: 340,
+                experienceLevel: "senior",
+                hourlyRate: "$85-120/hr",
+                responseTime: "2 hours",
+                skills: ["Logo Design", "Brand Strategy", "Adobe Illustrator", "Typography"],
+                portfolioImages: [
+                    "https://images.unsplash.com/photo-1686526473156-e8449f0c6765?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBsb2dvJTIwZGVzaWdufGVufDF8fHx8MTc1ODIyMzU5M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+                    "https://images.unsplash.com/photo-1710799885122-428e63eff691?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXNpZ25lciUyMHBvcnRmb2xpbyUyMGNyZWF0aXZlfGVufDF8fHx8MTc1ODI5MDQ0OXww&ixlib=rb-4.1.0&q=80&w=1080"
+                ],
+                avatar: "https://images.unsplash.com/photo-1753162660733-45bcad593b16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGRlc2lnbmVyJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzU4MTk1NjQ2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+                featured: true,
+                joinDate: "2023-01-15",
+                isOnline: true,
+                description: "Passionate brand designer with 8+ years creating memorable visual identities for startups and Fortune 500 companies."
+            },
+            {
+                id: 2,
+                name: "Alex Rodriguez",
+                specialty: "UI/UX Design",
+                specialtyCategory: "ui-ux",
+                location: "New York, NY",
+                rating: 4.8,
+                reviews: 89,
+                completedProjects: 256,
+                experienceLevel: "senior",
+                hourlyRate: "$75-100/hr",
+                responseTime: "1 hour",
+                skills: ["Figma", "User Research", "Prototyping", "React"],
+                portfolioImages: [
+                    "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwZGVzaWdufGVufDF8fHx8MTc1ODI5MDQ0OXww&ixlib=rb-4.1.0&q=80&w=1080",
+                    "https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcHAlMjBpY29uJTIwZGVzaWdufGVufDF8fHx8MTc1ODI5MDQ0OXww&ixlib=rb-4.1.0&q=80&w=1080"
+                ],
+                avatar: "https://images.unsplash.com/photo-1710799885122-428e63eff691?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXNpZ25lciUyMHBvcnRmb2xpbyUyMGNyZWF0aXZlfGVufDF8fHx8MTc1ODI5MDQ0OXww&ixlib=rb-4.1.0&q=80&w=1080",
+                featured: false,
+                joinDate: "2023-03-22",
+                isOnline: true,
+                description: "User-centered designer focused on creating intuitive digital experiences that users love and businesses need."
+            },
+            {
+                id: 3,
+                name: "Maya Patel",
+                specialty: "Print & Marketing Design",
+                specialtyCategory: "print-design",
+                location: "Austin, TX",
+                rating: 4.9,
+                reviews: 156,
+                completedProjects: 423,
+                experienceLevel: "senior",
+                hourlyRate: "$65-90/hr",
+                responseTime: "3 hours",
+                skills: ["InDesign", "Print Production", "Marketing", "Packaging"],
+                portfolioImages: [
+                    "https://images.unsplash.com/photo-1586953208448-b95a79798f07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGNhcmQlMjBkZXNpZ258ZW58MXx8fHwxNzU4MjkwNDQ5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+                    "https://images.unsplash.com/photo-1611224923853-80b023f02d71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBtZWRpYSUyMGRlc2lnbnxlbnwxfHx8fDE3NTgyOTA0NDl8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                ],
+                avatar: "https://images.unsplash.com/photo-1532617392008-5399d3d8a599?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmFwaGljJTIwZGVzaWduJTIwY3JlYXRpdmUlMjB3b3Jrc3BhY2V8ZW58MXx8fHwxNzU4MTkyNzM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+                featured: true,
+                joinDate: "2022-11-08",
+                isOnline: false,
+                description: "Creative print designer specializing in marketing materials that drive results and beautiful packaging designs."
+            },
+            {
+                id: 4,
+                name: "James Wilson",
+                specialty: "Illustration & Character Design",
+                specialtyCategory: "illustration",
+                location: "Seattle, WA",
+                rating: 4.7,
+                reviews: 73,
+                completedProjects: 189,
+                experienceLevel: "mid",
+                hourlyRate: "$50-75/hr",
+                responseTime: "4 hours",
+                skills: ["Digital Art", "Character Design", "Photoshop", "Procreate"],
+                portfolioImages: [
+                    "https://images.unsplash.com/photo-1753162660733-45bcad593b16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGRlc2lnbmVyJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzU4MTk1NjQ2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+                    "https://images.unsplash.com/photo-1532617392008-5399d3d8a599?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmFwaGljJTIwZGVzaWduJTIwY3JlYXRpdmUlMjB3b3Jrc3BhY2V8ZW58MXx8fHwxNzU4MTkyNzM3fDA&ixlib=rb-4.1.0&q=80&w=1080"
+                ],
+                avatar: "https://images.unsplash.com/photo-1686526473156-e8449f0c6765?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBsb2dvJTIwZGVzaWdufGVufDF8fHx8MTc1ODIyMzU5M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+                featured: false,
+                joinDate: "2023-05-12",
+                isOnline: true,
+                description: "Imaginative illustrator bringing stories to life through vibrant characters and engaging visual narratives."
+            },
+            {
+                id: 5,
+                name: "Emma Thompson",
+                specialty: "Web Design & Development",
+                specialtyCategory: "web-design",
+                location: "Denver, CO",
+                rating: 4.8,
+                reviews: 94,
+                completedProjects: 167,
+                experienceLevel: "mid",
+                hourlyRate: "$60-85/hr",
+                responseTime: "2 hours",
+                skills: ["WordPress", "Responsive Design", "CSS", "JavaScript"],
+                portfolioImages: [
+                    "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwZGVzaWdufGVufDF8fHx8MTc1ODI5MDQ0OXww&ixlib=rb-4.1.0&q=80&w=1080",
+                    "https://images.unsplash.com/photo-1686526473156-e8449f0c6765?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBsb2dvJTIwZGVzaWdufGVufDF8fHx8MTc1ODIyMzU5M3ww&ixlib=rb-4.1.0&q=80&w=1080"
+                ],
+                avatar: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBtZWRpYSUyMGRlc2lnbnxlbnwxfHx8fDE3NTgyOTA0NDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+                featured: false,
+                joinDate: "2023-07-30",
+                isOnline: true,
+                description: "Full-stack designer creating beautiful, functional websites that drive business growth and user engagement."
+            },
+            {
+                id: 6,
+                name: "David Kim",
+                specialty: "Motion Graphics & Animation",
+                specialtyCategory: "motion-graphics",
+                location: "Los Angeles, CA",
+                rating: 4.6,
+                reviews: 52,
+                completedProjects: 98,
+                experienceLevel: "mid",
+                hourlyRate: "$70-95/hr",
+                responseTime: "6 hours",
+                skills: ["After Effects", "Cinema 4D", "Animation", "Video Editing"],
+                portfolioImages: [
+                    "https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcHAlMjBpY29uJTIwZGVzaWdufGVufDF8fHx8MTc1ODI5MDQ0OXww&ixlib=rb-4.1.0&q=80&w=1080",
+                    "https://images.unsplash.com/photo-1710799885122-428e63eff691?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXNpZ25lciUyMHBvcnRmb2xpbyUyMGNyZWF0aXZlfGVufDF8fHx8MTc1ODI5MDQ0OXww&ixlib=rb-4.1.0&q=80&w=1080"
+                ],
+                avatar: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwZGVzaWdufGVufDF8fHx8MTc1ODI5MDQ0OXww&ixlib=rb-4.1.0&q=80&w=1080",
+                featured: true,
+                joinDate: "2023-09-18",
+                isOnline: false,
+                description: "Motion designer creating engaging animations and visual effects for brands, apps, and digital content."
+            },
+            {
+                id: 7,
+                name: "Lisa Anderson",
+                specialty: "Brand Identity & Strategy",
+                specialtyCategory: "brand-identity",
+                location: "Chicago, IL",
+                rating: 4.9,
+                reviews: 118,
+                completedProjects: 287,
+                experienceLevel: "senior",
+                hourlyRate: "$90-125/hr",
+                responseTime: "1 hour",
+                skills: ["Brand Strategy", "Logo Design", "Guidelines", "Research"],
+                portfolioImages: [
+                    "https://images.unsplash.com/photo-1586953208448-b95a79798f07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGNhcmQlMjBkZXNpZ258ZW58MXx8fHwxNzU4MjkwNDQ5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+                    "https://images.unsplash.com/photo-1686526473156-e8449f0c6765?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBsb2dvJTIwZGVzaWdufGVufDF8fHx8MTc1ODIyMzU5M3ww&ixlib=rb-4.1.0&q=80&w=1080"
+                ],
+                avatar: "https://images.unsplash.com/photo-1532617392008-5399d3d8a599?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmFwaGljJTIwZGVzaWduJTIwY3JlYXRpdmUlMjB3b3Jrc3BhY2V8ZW58MXx8fHwxNzU4MTkyNzM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+                featured: false,
+                joinDate: "2022-08-14",
+                isOnline: true,
+                description: "Strategic brand designer helping businesses build strong, memorable identities that resonate with their target audience."
+            },
+            {
+                id: 8,
+                name: "Michael Brooks",
+                specialty: "UI/UX Design",
+                specialtyCategory: "ui-ux",
+                location: "Miami, FL",
+                rating: 4.7,
+                reviews: 67,
+                completedProjects: 134,
+                experienceLevel: "mid",
+                hourlyRate: "$55-80/hr",
+                responseTime: "3 hours",
+                skills: ["Sketch", "InVision", "User Testing", "Wireframing"],
+                portfolioImages: [
+                    "https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcHAlMjBpY29uJTIwZGVzaWdufGVufDF8fHx8MTc1ODI5MDQ0OXww&ixlib=rb-4.1.0&q=80&w=1080",
+                    "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWJzaXRlJTIwZGVzaWdufGVufDF8fHx8MTc1ODI5MDQ0OXww&ixlib=rb-4.1.0&q=80&w=1080"
+                ],
+                avatar: "https://images.unsplash.com/photo-1753162660733-45bcad593b16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGRlc2lnbmVyJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzU4MTk1NjQ2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+                featured: false,
+                joinDate: "2023-10-05",
+                isOnline: true,
+                description: "User experience designer passionate about creating digital products that solve real problems and delight users."
+            }
+        ];
+
+        // State
+        let currentSpecialty = 'all';
+        let currentExperience = 'all';
+        let currentSort = 'rating';
+        let currentSearch = '';
+        let currentView = 'grid';
+        let currentPage = 1;
+        let savedArtists = [];
+        const itemsPerPage = 8;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+            setupEventListeners();
+            renderArtists();
+        });
+
+        function setupEventListeners() {
+            // Search input
+            document.getElementById('searchInput').addEventListener('input', function(e) {
+                currentSearch = e.target.value;
+                currentPage = 1;
+                renderArtists();
+            });
+
+            // Specialty filter buttons
+            document.querySelectorAll('#specialtyButtons .btn-filter').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('#specialtyButtons .btn-filter').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentSpecialty = this.dataset.filter;
+                    currentPage = 1;
+                    renderArtists();
+                });
+            });
+
+            // Experience filter buttons
+            document.querySelectorAll('#experienceButtons .btn-filter').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('#experienceButtons .btn-filter').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentExperience = this.dataset.filter;
+                    currentPage = 1;
+                    renderArtists();
+                });
+            });
+
+            // Sort select
+            document.getElementById('sortSelect').addEventListener('change', function(e) {
+                currentSort = e.target.value;
+                renderArtists();
+            });
+
+            // View toggle
+            document.querySelectorAll('.btn-view').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.btn-view').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentView = this.dataset.view;
+                    renderArtists();
+                });
+            });
+
+            // Pagination buttons
+            document.getElementById('prevBtn').addEventListener('click', function() {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderArtists();
+                }
+            });
+
+            document.getElementById('nextBtn').addEventListener('click', function() {
+                const filteredArtists = getFilteredArtists();
+                const totalPages = Math.ceil(filteredArtists.length / itemsPerPage);
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderArtists();
+                }
+            });
+
+            // Category cards
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const specialty = this.dataset.specialty;
+                    // Update specialty filter
+                    document.querySelectorAll('#specialtyButtons .btn-filter').forEach(b => b.classList.remove('active'));
+                    const targetBtn = document.querySelector(`#specialtyButtons .btn-filter[data-filter="${specialty}"]`);
+                    if (targetBtn) {
+                        targetBtn.classList.add('active');
+                        currentSpecialty = specialty;
+                        currentPage = 1;
+                        renderArtists();
+                        // Scroll to artists section
+                        document.querySelector('.artists-section').scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        }
+
+        function getFilteredArtists() {
+            return allArtists
+                .filter(artist => {
+                    const matchesSearch = artist.name.toLowerCase().includes(currentSearch.toLowerCase()) ||
+                                        artist.specialty.toLowerCase().includes(currentSearch.toLowerCase()) ||
+                                        artist.location.toLowerCase().includes(currentSearch.toLowerCase()) ||
+                                        artist.skills.some(skill => skill.toLowerCase().includes(currentSearch.toLowerCase()));
+                    
+                    const matchesSpecialty = currentSpecialty === 'all' || artist.specialtyCategory === currentSpecialty;
+                    const matchesExperience = currentExperience === 'all' || artist.experienceLevel === currentExperience;
+                    
+                    return matchesSearch && matchesSpecialty && matchesExperience;
+                })
+                .sort((a, b) => {
+                    switch (currentSort) {
+                        case 'rating':
+                            return b.rating - a.rating;
+                        case 'projects':
+                            return b.completedProjects - a.completedProjects;
+                        case 'reviews':
+                            return b.reviews - a.reviews;
+                        case 'name':
+                            return a.name.localeCompare(b.name);
+                        case 'newest':
+                            return new Date(b.joinDate) - new Date(a.joinDate);
+                        default:
+                            return 0;
+                    }
+                });
+        }
+
+        function createArtistCard(artist) {
+            return `
+                <div class="artist-card ${artist.featured ? 'featured' : ''}" onclick="viewArtist(${artist.id})">
+                    ${artist.featured ? '<div class="featured-badge"><i data-lucide="award" class="icon-xs"></i>Featured</div>' : ''}
+                    
+                    <div class="artist-header">
+                        <div class="artist-avatar">
+                            <img src="${artist.avatar}" alt="${artist.name}" class="avatar-img">
+                            <div class="online-indicator ${artist.isOnline ? 'online' : 'offline'}"></div>
+                        </div>
+                        <button class="save-btn ${savedArtists.includes(artist.id) ? 'saved' : ''}" onclick="event.stopPropagation(); toggleSaveArtist(${artist.id})">
+                            <i data-lucide="bookmark" class="icon-sm"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="artist-content">
+                        <h3 class="artist-name">${artist.name}</h3>
+                        <p class="artist-specialty">${artist.specialty}</p>
+                        
+                        <div class="artist-location">
+                            <i data-lucide="map-pin" class="icon-xs"></i>
+                            ${artist.location}
+                        </div>
+                        
+                        <div class="artist-rating">
+                            <i data-lucide="star" class="icon-xs star-filled"></i>
+                            <span class="rating-score">${artist.rating}</span>
+                            <span class="rating-reviews">(${artist.reviews})</span>
+                        </div>
+                        
+                        <div class="artist-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">${artist.completedProjects}</span>
+                                <span class="stat-label">projects</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">${artist.hourlyRate}</span>
+                                <span class="stat-label">hourly</span>
+                            </div>
+                        </div>
+                        
+                        <div class="artist-skills">
+                            ${artist.skills.slice(0, 3).map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                            ${artist.skills.length > 3 ? `<span class="skill-tag">+${artist.skills.length - 3}</span>` : ''}
+                        </div>
+                        
+                        <div class="artist-portfolio">
+                            ${artist.portfolioImages.slice(0, 2).map(img => `
+                                <div class="portfolio-item">
+                                    <img src="${img}" alt="Portfolio piece" class="portfolio-img">
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <button class="btn btn-primary btn-sm artist-contact">
+                            Contact Designer
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function createArtistListItem(artist) {
+            return `
+                <div class="artist-list-item" onclick="viewArtist(${artist.id})">
+                    <div class="list-avatar-container">
+                        <img src="${artist.avatar}" alt="${artist.name}" class="list-avatar">
+                        <div class="online-indicator ${artist.isOnline ? 'online' : 'offline'}"></div>
+                    </div>
+                    
+                    <div class="list-content">
+                        <div class="list-header">
+                            <div class="list-main-info">
+                                <h3 class="artist-name">${artist.name}</h3>
+                                <p class="artist-specialty">${artist.specialty}</p>
+                                <div class="artist-location">
+                                    <i data-lucide="map-pin" class="icon-xs"></i>
+                                    ${artist.location}
+                                </div>
+                            </div>
+                            
+                            <div class="list-stats">
+                                <div class="artist-rating">
+                                    <i data-lucide="star" class="icon-xs star-filled"></i>
+                                    <span class="rating-score">${artist.rating}</span>
+                                    <span class="rating-reviews">(${artist.reviews})</span>
+                                </div>
+                                <div class="list-stat-item">
+                                    <span class="stat-value">${artist.completedProjects}</span>
+                                    <span class="stat-label">projects</span>
+                                </div>
+                                <div class="list-stat-item">
+                                    <span class="stat-value">${artist.hourlyRate}</span>
+                                    <span class="stat-label">hourly</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="artist-description">${artist.description}</p>
+                        
+                        <div class="artist-skills">
+                            ${artist.skills.slice(0, 4).map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                            ${artist.skills.length > 4 ? `<span class="skill-tag">+${artist.skills.length - 4}</span>` : ''}
+                        </div>
+                    </div>
+                    
+                    <div class="list-actions">
+                        <button class="save-btn ${savedArtists.includes(artist.id) ? 'saved' : ''}" onclick="event.stopPropagation(); toggleSaveArtist(${artist.id})">
+                            <i data-lucide="bookmark" class="icon-sm"></i>
+                        </button>
+                        <button class="btn btn-primary btn-sm">Contact Designer</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function toggleSaveArtist(artistId) {
+            const index = savedArtists.indexOf(artistId);
+            if (index > -1) {
+                savedArtists.splice(index, 1);
+            } else {
+                savedArtists.push(artistId);
+            }
+            renderArtists();
+        }
+
+        function renderArtists() {
+            const filteredArtists = getFilteredArtists();
+            const totalPages = Math.ceil(filteredArtists.length / itemsPerPage);
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = Math.min(startIndex + itemsPerPage, filteredArtists.length);
+            const artistsToShow = filteredArtists.slice(startIndex, endIndex);
+            
+            // Update results count
+            const resultsCount = document.getElementById('resultsCount');
+            if (filteredArtists.length > 0) {
+                resultsCount.textContent = `Showing ${startIndex + 1}-${endIndex} of ${filteredArtists.length} designers`;
+            } else {
+                resultsCount.textContent = 'No designers found';
+            }
+            
+            // Show/hide views
+            const gridContainer = document.getElementById('artistsGrid');
+            const listContainer = document.getElementById('artistsList');
+            
+            if (currentView === 'grid') {
+                gridContainer.classList.remove('hidden');
+                listContainer.classList.add('hidden');
+                gridContainer.innerHTML = artistsToShow.map(createArtistCard).join('');
+            } else {
+                gridContainer.classList.add('hidden');
+                listContainer.classList.remove('hidden');
+                listContainer.innerHTML = artistsToShow.map(createArtistListItem).join('');
+            }
+            
+            // Update pagination
+            updatePagination(totalPages, filteredArtists.length);
+            
+            // Reinitialize icons
+            lucide.createIcons();
+        }
+
+        function updatePagination(totalPages, totalArtists) {
+            const paginationContainer = document.getElementById('paginationContainer');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const paginationInfo = document.getElementById('paginationInfo');
+            const paginationPages = document.getElementById('paginationPages');
+
+            if (totalPages <= 1) {
+                paginationContainer.style.display = 'none';
+                return;
+            }
+
+            paginationContainer.style.display = 'block';
+
+            // Update pagination info
+            paginationInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+
+            // Update button states
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages;
+
+            // Generate page numbers (show up to 5 pages with current page in center when possible)
+            let startPage = Math.max(1, currentPage - 2);
+            let endPage = Math.min(totalPages, startPage + 4);
+            
+            if (endPage - startPage < 4) {
+                startPage = Math.max(1, endPage - 4);
+            }
+
+            let pagesHTML = '';
+            
+            // First page and ellipsis
+            if (startPage > 1) {
+                pagesHTML += `<button class="btn btn-page" onclick="goToPage(1)">1</button>`;
+                if (startPage > 2) {
+                    pagesHTML += `<span class="pagination-ellipsis">...</span>`;
+                }
+            }
+            
+            // Page numbers
+            for (let i = startPage; i <= endPage; i++) {
+                pagesHTML += `
+                    <button class="btn btn-page ${currentPage === i ? 'active' : ''}" onclick="goToPage(${i})">
+                        ${i}
+                    </button>
+                `;
+            }
+            
+            // Last page and ellipsis
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    pagesHTML += `<span class="pagination-ellipsis">...</span>`;
+                }
+                pagesHTML += `<button class="btn btn-page" onclick="goToPage(${totalPages})">${totalPages}</button>`;
+            }
+            
+            paginationPages.innerHTML = pagesHTML;
+        }
+
+        function goToPage(page) {
+            currentPage = page;
+            renderArtists();
+            // Scroll to top of artists section
+            document.querySelector('.artists-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function viewArtist(artistId) {
+            console.log('Viewing artist:', artistId);
+            // Here you would navigate to the artist detail page
+            alert(`Viewing artist ${artistId}`);
+        }
+    </script>
+</body>
+</html>
