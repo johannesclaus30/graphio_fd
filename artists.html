@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artists - Graphio</title>
+    <title>Artists | Graphio</title>
+    <link rel="icon" type="image/jpg" sizes="30x30" href="logos/graphio.jpg">
     <link rel="stylesheet" href="artists.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Lucide Icons -->
@@ -18,7 +19,7 @@
                     <!-- Logo -->
                     <div class="logo">
                         <a href="index.html" class="logo-link">
-                            <div class="logo-text">Graphio</div>
+                            <img class="graphio-logo" src="logos/graphio_logo_blue.png" />
                         </a>
                     </div>
 
@@ -27,7 +28,7 @@
                         <a href="designs.html" class="nav-link">Designs</a>
                         <a href="careers.html" class="nav-link">Careers</a>
                         <a href="artists.html" class="nav-link active">Artists</a>
-                        <a href="index.html#about" class="nav-link">About</a>
+                        <a href="about.html" class="nav-link">About</a>
                     </nav>
 
                     <!-- Right side buttons -->
@@ -36,8 +37,10 @@
                             <i data-lucide="search" class="icon-sm"></i>
                             Search
                         </button>
-                        <a href="login.html" class="btn btn-outline btn-sm">Log In</a>
-                        <a href="signup.html" class="btn btn-sm btn-gradient designer-btn">Be a Graphio Designer</a>
+                        <a href="login.html" class="btn btn-outline btn-sm">Sign In</a>
+                        <button class="btn btn-sm btn-gradient designer-btn">
+                             <a href="signup.html" class="logo-link-white">Create a <i class="text-italic-gold"> graphio  </i> account</a>
+                            </button>
                         
                         <!-- Mobile menu button -->
                         <button class="btn btn-ghost btn-sm mobile-menu">
@@ -50,7 +53,7 @@
 
         <main>
             <!-- Hero Section -->
-            <section class="hero-section">
+            <section class="hero-section" id="up">
                 <div class="container">
                     <div class="hero-content">
                         <h1 class="hero-title">Meet Our Talented Designers</h1>
@@ -142,7 +145,7 @@
                     </div>
                     
                     <div class="results-count" id="resultsCount">
-                        Showing 1-8 of 500+ designers
+                        Showing 1-8 of 10 designers
                     </div>
                 </div>
             </section>
@@ -169,10 +172,10 @@
                             </button>
                             
                             <div class="pagination-info" id="paginationInfo">
-                                Page 1 of 1
+                                Page 1 of 2
                             </div>
                             
-                            <button class="btn btn-outline btn-sm pagination-btn" id="nextBtn" disabled>
+                            <button class="btn btn-outline btn-sm pagination-btn" id="nextBtn">
                                 Next
                                 <i data-lucide="chevron-right" class="icon-sm"></i>
                             </button>
@@ -180,86 +183,6 @@
                         
                         <div class="pagination-pages" id="paginationPages">
                             <!-- Page numbers will be inserted here -->
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Featured Categories -->
-            <section class="categories-section">
-                <div class="container">
-                    <div class="section-header">
-                        <h2 class="section-title">Browse by Specialty</h2>
-                        <p class="section-description">
-                            Find designers specialized in your specific design needs
-                        </p>
-                    </div>
-                    
-                    <div class="categories-grid">
-                        <div class="category-card" data-specialty="brand-identity">
-                            <div class="category-icon">
-                                <i data-lucide="palette" class="icon-lg"></i>
-                            </div>
-                            <h3 class="category-title">Brand Identity</h3>
-                            <p class="category-description">Logo design, brand guidelines, and complete visual identity systems</p>
-                            <div class="category-stats">
-                                <span class="category-count">120+ designers</span>
-                            </div>
-                        </div>
-                        
-                        <div class="category-card" data-specialty="ui-ux">
-                            <div class="category-icon">
-                                <i data-lucide="smartphone" class="icon-lg"></i>
-                            </div>
-                            <h3 class="category-title">UI/UX Design</h3>
-                            <p class="category-description">User interface design, user experience optimization, and prototyping</p>
-                            <div class="category-stats">
-                                <span class="category-count">95+ designers</span>
-                            </div>
-                        </div>
-                        
-                        <div class="category-card" data-specialty="illustration">
-                            <div class="category-icon">
-                                <i data-lucide="paintbrush" class="icon-lg"></i>
-                            </div>
-                            <h3 class="category-title">Illustration</h3>
-                            <p class="category-description">Digital art, character design, and custom illustrations</p>
-                            <div class="category-stats">
-                                <span class="category-count">80+ designers</span>
-                            </div>
-                        </div>
-                        
-                        <div class="category-card" data-specialty="print-design">
-                            <div class="category-icon">
-                                <i data-lucide="layout" class="icon-lg"></i>
-                            </div>
-                            <h3 class="category-title">Print Design</h3>
-                            <p class="category-description">Brochures, business cards, posters, and marketing materials</p>
-                            <div class="category-stats">
-                                <span class="category-count">75+ designers</span>
-                            </div>
-                        </div>
-                        
-                        <div class="category-card" data-specialty="web-design">
-                            <div class="category-icon">
-                                <i data-lucide="globe" class="icon-lg"></i>
-                            </div>
-                            <h3 class="category-title">Web Design</h3>
-                            <p class="category-description">Website design, landing pages, and responsive layouts</p>
-                            <div class="category-stats">
-                                <span class="category-count">110+ designers</span>
-                            </div>
-                        </div>
-                        
-                        <div class="category-card" data-specialty="motion-graphics">
-                            <div class="category-icon">
-                                <i data-lucide="video" class="icon-lg"></i>
-                            </div>
-                            <h3 class="category-title">Motion Graphics</h3>
-                            <p class="category-description">Animation, video graphics, and interactive design</p>
-                            <div class="category-stats">
-                                <span class="category-count">45+ designers</span>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -276,11 +199,11 @@
                             </p>
                         </div>
                         <div class="cta-actions">
-                            <a href="signup.html" class="btn btn-primary">
+                            <a href="signup.html" class="lower-btn post-your-project">
                                 Post Your Project
                                 <i data-lucide="arrow-right" class="icon-sm"></i>
                             </a>
-                            <a href="designs.html" class="btn btn-outline btn-white">
+                            <a href="designs.html" class="lower-btn browse-designs">
                                 <i data-lucide="eye" class="icon-sm"></i>
                                 Browse Designs
                             </a>
@@ -295,7 +218,8 @@
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-section">
-                        <h3 class="footer-title">Graphio</h3>
+                        <div class="footer-logo"><a href="#up" class="logo-link-white">
+                            <img class="graphio-logo-footer" src="logos/graphio_logo_white.png"/></a></div>
                         <p class="footer-description">
                             The leading marketplace for creative professionals. Connect, create, and grow your design business.
                         </p>
@@ -341,7 +265,7 @@
                             <li><a href="#" class="footer-link">About Us</a></li>
                             <li><a href="#" class="footer-link">Careers</a></li>
                             <li><a href="#" class="footer-link">Press</a></li>
-                            <li><a href="#" class="footer-link">Contact</a></li>
+                            <li><a href="index.html#contact" class="footer-link">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -361,7 +285,7 @@
     </div>
 
     <script>
-        // Artist data
+        // Artist data with 10 designers for proper pagination
         const allArtists = [
             {
                 id: 1,
@@ -546,6 +470,52 @@
                 joinDate: "2023-10-05",
                 isOnline: true,
                 description: "User experience designer passionate about creating digital products that solve real problems and delight users."
+            },
+            {
+                id: 9,
+                name: "Sophie Martinez",
+                specialty: "Product Design & Packaging",
+                specialtyCategory: "print-design",
+                location: "Portland, OR",
+                rating: 4.8,
+                reviews: 85,
+                completedProjects: 201,
+                experienceLevel: "senior",
+                hourlyRate: "$80-110/hr",
+                responseTime: "2 hours",
+                skills: ["Packaging Design", "3D Modeling", "Product Strategy", "Sustainable Design"],
+                portfolioImages: [
+                    "https://images.unsplash.com/photo-1586953208448-b95a79798f07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGNhcmQlMjBkZXNpZ258ZW58MXx8fHwxNzU4MjkwNDQ5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+                    "https://images.unsplash.com/photo-1611224923853-80b023f02d71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBtZWRpYSUyMGRlc2lnbnxlbnwxfHx8fDE3NTgyOTA0NDl8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                ],
+                avatar: "https://images.unsplash.com/photo-1532617392008-5399d3d8a599?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmFwaGljJTIwZGVzaWduJTIwY3JlYXRpdmUlMjB3b3Jrc3BhY2V8ZW58MXx8fHwxNzU4MTkyNzM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+                featured: true,
+                joinDate: "2022-12-03",
+                isOnline: true,
+                description: "Product designer specializing in sustainable packaging and physical product design that merges form with function."
+            },
+            {
+                id: 10,
+                name: "Tyler Johnson",
+                specialty: "Digital Illustration & Art Direction",
+                specialtyCategory: "illustration",
+                location: "Nashville, TN",
+                rating: 4.6,
+                reviews: 41,
+                completedProjects: 76,
+                experienceLevel: "junior",
+                hourlyRate: "$40-65/hr",
+                responseTime: "5 hours",
+                skills: ["Digital Illustration", "Art Direction", "Adobe Creative Suite", "Concept Art"],
+                portfolioImages: [
+                    "https://images.unsplash.com/photo-1753162660733-45bcad593b16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGRlc2lnbmVyJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzU4MTk1NjQ2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+                    "https://images.unsplash.com/photo-1686526473156-e8449f0c6765?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBsb2dvJTIwZGVzaWdufGVufDF8fHx8MTc1ODIyMzU5M3ww&ixlib=rb-4.1.0&q=80&w=1080"
+                ],
+                avatar: "https://images.unsplash.com/photo-1710799885122-428e63eff691?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZXNpZ25lciUyMHBvcnRmb2xpbyUyMGNyZWF0aXZlfGVufDF8fHx8MTc1ODI5MDQ0OXww&ixlib=rb-4.1.0&q=80&w=1080",
+                featured: false,
+                joinDate: "2023-11-20",
+                isOnline: true,
+                description: "Creative illustrator and art director with a passion for storytelling through visual design and digital art."
             }
         ];
 
@@ -627,24 +597,6 @@
                     currentPage++;
                     renderArtists();
                 }
-            });
-
-            // Category cards
-            document.querySelectorAll('.category-card').forEach(card => {
-                card.addEventListener('click', function() {
-                    const specialty = this.dataset.specialty;
-                    // Update specialty filter
-                    document.querySelectorAll('#specialtyButtons .btn-filter').forEach(b => b.classList.remove('active'));
-                    const targetBtn = document.querySelector(`#specialtyButtons .btn-filter[data-filter="${specialty}"]`);
-                    if (targetBtn) {
-                        targetBtn.classList.add('active');
-                        currentSpecialty = specialty;
-                        currentPage = 1;
-                        renderArtists();
-                        // Scroll to artists section
-                        document.querySelector('.artists-section').scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
             });
         }
 
@@ -751,48 +703,102 @@
                     
                     <div class="list-content">
                         <div class="list-header">
-                            <div class="list-main-info">
-                                <h3 class="artist-name">${artist.name}</h3>
-                                <p class="artist-specialty">${artist.specialty}</p>
-                                <div class="artist-location">
+                            <div class="list-info">
+                                <h3 class="list-name">${artist.name}</h3>
+                                <p class="list-specialty">${artist.specialty}</p>
+                                <div class="list-location">
                                     <i data-lucide="map-pin" class="icon-xs"></i>
                                     ${artist.location}
                                 </div>
                             </div>
-                            
-                            <div class="list-stats">
-                                <div class="artist-rating">
-                                    <i data-lucide="star" class="icon-xs star-filled"></i>
-                                    <span class="rating-score">${artist.rating}</span>
-                                    <span class="rating-reviews">(${artist.reviews})</span>
-                                </div>
-                                <div class="list-stat-item">
-                                    <span class="stat-value">${artist.completedProjects}</span>
-                                    <span class="stat-label">projects</span>
-                                </div>
-                                <div class="list-stat-item">
-                                    <span class="stat-value">${artist.hourlyRate}</span>
-                                    <span class="stat-label">hourly</span>
-                                </div>
+                            <div class="list-rating">
+                                <i data-lucide="star" class="icon-xs star-filled"></i>
+                                <span class="rating-score">${artist.rating}</span>
+                                <span class="rating-reviews">(${artist.reviews})</span>
                             </div>
                         </div>
                         
-                        <p class="artist-description">${artist.description}</p>
-                        
-                        <div class="artist-skills">
-                            ${artist.skills.slice(0, 4).map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
-                            ${artist.skills.length > 4 ? `<span class="skill-tag">+${artist.skills.length - 4}</span>` : ''}
+                        <div class="list-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Projects:</span>
+                                <span class="stat-value">${artist.completedProjects}</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Rate:</span>
+                                <span class="stat-value">${artist.hourlyRate}</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Response:</span>
+                                <span class="stat-value">${artist.responseTime}</span>
+                            </div>
                         </div>
+                        
+                        <div class="list-skills">
+                            ${artist.skills.slice(0, 5).map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                            ${artist.skills.length > 5 ? `<span class="skill-tag">+${artist.skills.length - 5}</span>` : ''}
+                        </div>
+                        
+                        <p class="list-description">${artist.description}</p>
                     </div>
                     
                     <div class="list-actions">
                         <button class="save-btn ${savedArtists.includes(artist.id) ? 'saved' : ''}" onclick="event.stopPropagation(); toggleSaveArtist(${artist.id})">
                             <i data-lucide="bookmark" class="icon-sm"></i>
                         </button>
-                        <button class="btn btn-primary btn-sm">Contact Designer</button>
+                        <button class="btn btn-primary btn-sm">
+                            Contact Designer
+                        </button>
                     </div>
                 </div>
             `;
+        }
+
+        function renderArtists() {
+            const filteredArtists = getFilteredArtists();
+            const totalPages = Math.ceil(filteredArtists.length / itemsPerPage);
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const currentArtists = filteredArtists.slice(startIndex, endIndex);
+
+            // Update results count
+            document.getElementById('resultsCount').textContent = 
+                `Showing ${startIndex + 1}-${Math.min(endIndex, filteredArtists.length)} of ${filteredArtists.length} designers`;
+
+            // Update view visibility
+            const gridContainer = document.getElementById('artistsGrid');
+            const listContainer = document.getElementById('artistsList');
+            
+            if (currentView === 'grid') {
+                gridContainer.classList.remove('hidden');
+                listContainer.classList.add('hidden');
+                gridContainer.innerHTML = currentArtists.map(createArtistCard).join('');
+            } else {
+                gridContainer.classList.add('hidden');
+                listContainer.classList.remove('hidden');
+                listContainer.innerHTML = currentArtists.map(createArtistListItem).join('');
+            }
+
+            // Update pagination
+            updatePagination(currentPage, totalPages);
+
+            // Reinitialize icons
+            lucide.createIcons();
+        }
+
+        function updatePagination(currentPage, totalPages) {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const paginationInfo = document.getElementById('paginationInfo');
+
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages || totalPages === 0;
+            
+            paginationInfo.textContent = totalPages > 0 ? `Page ${currentPage} of ${totalPages}` : 'No results';
+        }
+
+        function viewArtist(artistId) {
+            console.log('Viewing artist:', artistId);
+            // Implement artist detail view
         }
 
         function toggleSaveArtist(artistId) {
@@ -803,114 +809,6 @@
                 savedArtists.push(artistId);
             }
             renderArtists();
-        }
-
-        function renderArtists() {
-            const filteredArtists = getFilteredArtists();
-            const totalPages = Math.ceil(filteredArtists.length / itemsPerPage);
-            const startIndex = (currentPage - 1) * itemsPerPage;
-            const endIndex = Math.min(startIndex + itemsPerPage, filteredArtists.length);
-            const artistsToShow = filteredArtists.slice(startIndex, endIndex);
-            
-            // Update results count
-            const resultsCount = document.getElementById('resultsCount');
-            if (filteredArtists.length > 0) {
-                resultsCount.textContent = `Showing ${startIndex + 1}-${endIndex} of ${filteredArtists.length} designers`;
-            } else {
-                resultsCount.textContent = 'No designers found';
-            }
-            
-            // Show/hide views
-            const gridContainer = document.getElementById('artistsGrid');
-            const listContainer = document.getElementById('artistsList');
-            
-            if (currentView === 'grid') {
-                gridContainer.classList.remove('hidden');
-                listContainer.classList.add('hidden');
-                gridContainer.innerHTML = artistsToShow.map(createArtistCard).join('');
-            } else {
-                gridContainer.classList.add('hidden');
-                listContainer.classList.remove('hidden');
-                listContainer.innerHTML = artistsToShow.map(createArtistListItem).join('');
-            }
-            
-            // Update pagination
-            updatePagination(totalPages, filteredArtists.length);
-            
-            // Reinitialize icons
-            lucide.createIcons();
-        }
-
-        function updatePagination(totalPages, totalArtists) {
-            const paginationContainer = document.getElementById('paginationContainer');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const paginationInfo = document.getElementById('paginationInfo');
-            const paginationPages = document.getElementById('paginationPages');
-
-            if (totalPages <= 1) {
-                paginationContainer.style.display = 'none';
-                return;
-            }
-
-            paginationContainer.style.display = 'block';
-
-            // Update pagination info
-            paginationInfo.textContent = `Page ${currentPage} of ${totalPages}`;
-
-            // Update button states
-            prevBtn.disabled = currentPage === 1;
-            nextBtn.disabled = currentPage === totalPages;
-
-            // Generate page numbers (show up to 5 pages with current page in center when possible)
-            let startPage = Math.max(1, currentPage - 2);
-            let endPage = Math.min(totalPages, startPage + 4);
-            
-            if (endPage - startPage < 4) {
-                startPage = Math.max(1, endPage - 4);
-            }
-
-            let pagesHTML = '';
-            
-            // First page and ellipsis
-            if (startPage > 1) {
-                pagesHTML += `<button class="btn btn-page" onclick="goToPage(1)">1</button>`;
-                if (startPage > 2) {
-                    pagesHTML += `<span class="pagination-ellipsis">...</span>`;
-                }
-            }
-            
-            // Page numbers
-            for (let i = startPage; i <= endPage; i++) {
-                pagesHTML += `
-                    <button class="btn btn-page ${currentPage === i ? 'active' : ''}" onclick="goToPage(${i})">
-                        ${i}
-                    </button>
-                `;
-            }
-            
-            // Last page and ellipsis
-            if (endPage < totalPages) {
-                if (endPage < totalPages - 1) {
-                    pagesHTML += `<span class="pagination-ellipsis">...</span>`;
-                }
-                pagesHTML += `<button class="btn btn-page" onclick="goToPage(${totalPages})">${totalPages}</button>`;
-            }
-            
-            paginationPages.innerHTML = pagesHTML;
-        }
-
-        function goToPage(page) {
-            currentPage = page;
-            renderArtists();
-            // Scroll to top of artists section
-            document.querySelector('.artists-section').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function viewArtist(artistId) {
-            console.log('Viewing artist:', artistId);
-            // Here you would navigate to the artist detail page
-            alert(`Viewing artist ${artistId}`);
         }
     </script>
 </body>
