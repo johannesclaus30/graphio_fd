@@ -69,6 +69,35 @@ body {
 }
 
 /* Header */
+.graphio-logo {
+  align-self: stretch;
+  flex-shrink: 0;
+  margin-top: 7px;
+  height: 50px;
+  position: relative;
+  object-fit: cover;
+}
+.graphio-logo-footer {
+  align-self: stretch;
+  flex-shrink: 0;
+
+  height: 90px;
+  position: relative;
+  object-fit: cover;
+}
+.text-italic-gold {
+  color: #fbd117;
+  font-weight: bolder;
+}
+.logo-link {
+    text-decoration: none;
+    color: #2e2e2e;
+}
+.logo-link-white {
+    text-decoration: none;
+    color: #f9f9f9;
+}
+
 .business-header {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
